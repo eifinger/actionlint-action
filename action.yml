@@ -1,0 +1,26 @@
+name: 'Actionlint Action'
+description: 'Install actionlint and run it on all workflow files'
+author: 'eifinger'
+runs:
+  using: composite
+  steps:
+    - name: Install actionlint
+      run: |
+        file="actionlint_${VERSION}_linux_amd64.tar.gz"
+        url="https://github.com/rhysd/actionlint/releases/download/v${VERSION}/${file}"
+        curl -L -o "${file}" "${url}"
+        echo "${CHECKUM}  ${file}" | sha256sum
+        tar xzf "${file}" actionlint
+      shell: bash
+      env:
+        VERSION: "1.6.25"
+        CHECKSUM: "73565e4d358f92b80b7bec49e56d96f5a9a6576cb74786b61dd94484c9d16c0a"
+    - name: Add Matcher
+      run: echo "::add-matcher::./matchers/actionlint.json"
+      shell: bash
+    - name: Lint GitHub Action Workflows
+      run: ./actionlint -color
+      shell: bash
+branding:
+  icon: 'check'
+  color: 'green'
