@@ -17,8 +17,14 @@ runs:
         file="actionlint_${VERSION}_linux_amd64.tar.gz"
         url="https://github.com/rhysd/actionlint/releases/download/v${VERSION}/${file}"
         curl -L -o "${file}" "${url}"
-        if [[ ! -z "$CHECKSUM" ]]; then
-          echo "${CHECKSUM}  ${file}" | sha256sum -c
+        if ! sha256sum -c checksums.txt --ignore-missing --status;
+        then
+          echo "No known checksum matches. Checking for supplied checksums..."
+          if [[ ! -z "$CHECKSUM" ]]; then
+            echo "${CHECKSUM}  ${file}" | sha256sum -c
+          else
+            echo ::warning title=Unvalidated binary::No checksums could be found to validate the ${file}. Please consider adding a checksum via the CHECKSUM input.
+          fi
         fi
         tar xzf "${file}" actionlint
       shell: bash
