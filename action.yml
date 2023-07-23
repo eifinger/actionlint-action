@@ -18,7 +18,7 @@ runs:
         url="https://github.com/rhysd/actionlint/releases/download/v${VERSION}/${file}"
         curl -L -o "${file}" "${url}"
         if [[ ! -z "$CHECKSUM" ]]; then
-          echo "${CHECKUM}  ${file}" | sha256sum
+          echo "${CHECKSUM}  ${file}" | sha256sum -c
         fi
         tar xzf "${file}" actionlint
       shell: bash
