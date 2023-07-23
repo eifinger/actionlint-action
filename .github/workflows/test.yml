@@ -32,7 +32,7 @@ jobs:
         continue-on-error: true
         with:
           version: "1.6.24"
-          checksum: "wrong"
+          checksum: "4c5818744143a5d6754edd3dcc4c2b32c9dfcdd3bb30e0e108fb5e5c505262d4"
   test-no-checksum:
     runs-on: ubuntu-latest
     steps:
