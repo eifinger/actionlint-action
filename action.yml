@@ -23,7 +23,7 @@ runs:
           if [[ ! -z "$CHECKSUM" ]]; then
             echo "${CHECKSUM}  ${file}" | sha256sum -c
           else
-            echo ::warning title=Unvalidated binary::No checksums could be found to validate the ${file}. Please consider adding a checksum via the checksum input.
+            echo ::warning title=Unvalidated binary::No checksums could be found to validate ${file}. Please consider adding a checksum via the checksum input.
           fi
         fi
         tar xzf "${file}" actionlint
