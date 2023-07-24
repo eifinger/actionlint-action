@@ -28,12 +28,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Lint GitHub Action Workflows
+        id: should-fail
         uses: ./
         continue-on-error: true
         with:
-          version: "1.6.24"
+          version: "1.6.23"
           checksum: "4c5818744143a5d6754edd3dcc4c2b32c9dfcdd3bb30e0e108fb5e5c505262d4"
-  test-no-checksum:
+      - name: Pass if action failed
+        if: steps.should-fail.outcome == 'failure'
+        run: exit 0
+      - name: Fail if action passed
+        if: steps.should-fail.outcome == 'success'
+        run: exit 1
+  test-specific-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -41,3 +48,11 @@ jobs:
         uses: ./
         with:
           version: "1.6.24"
+  test-no-checksum:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Lint GitHub Action Workflows
+        uses: ./
+        with:
+          version: "1.6.23"
