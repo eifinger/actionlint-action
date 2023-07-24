@@ -17,7 +17,7 @@ runs:
         file="actionlint_${VERSION}_linux_amd64.tar.gz"
         url="https://github.com/rhysd/actionlint/releases/download/v${VERSION}/${file}"
         curl -L -o "${file}" "${url}"
-        if ! sha256sum -c checksums.txt --ignore-missing --status;
+        if ! sha256sum -c ${GITHUB_ACTION_PATH}/checksums.txt --ignore-missing --status;
         then
           echo "No known checksum matches. Checking for supplied checksums..."
           if [[ ! -z "$CHECKSUM" ]]; then
@@ -32,7 +32,7 @@ runs:
         VERSION: ${{ inputs.version }}
         CHECKSUM: ${{ inputs.checksum }}
     - name: Add Matcher
-      run: echo "::add-matcher::./matchers/actionlint.json"
+      run: echo "::add-matcher::${GITHUB_ACTION_PATH}/matchers/actionlint.json"
       shell: bash
     - name: Lint GitHub Action Workflows
       run: ./actionlint -color
