@@ -29,6 +29,9 @@ For later versions you can use the `checksum` input to verify the checksum of th
   with:
     version: "v99.0.1"
     checksum: "4c5818744143a5d6754edd3dcc4c2b32c9dfcdd3bb30e0e108fb5e5c505262d4"
+````
+
 ---
 
-<a href="https://www.buymeacoffee.com/eifinger" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a><br>
+[<img src="https://raw.githubusercontent.com/eifinger/actionlint-action/main/docs/images/bmc-button.svg" width=150 height=40 style="margin: 5px"/>](https://www.buymeacoffee.com/eifinger)
+[<img src="https://raw.githubusercontent.com/eifinger/actionlint-action/main/docs/images/paypal-button.svg" width=150 height=40 style="margin: 5px"/>](https://paypal.me/kevinstillhammer)
