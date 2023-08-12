@@ -1,6 +1,11 @@
 # actionlint-action
 
-Installs [actionlint](https://github.com/rhysd/actionlint) and runs it on all workflow files in the repository. Validates the checksum of the downloaded binary against the checksums published in the [actionlint release notes](https://github.com/rhysd/actionlint/releases).
+Installs [actionlint](https://github.com/rhysd/actionlint) and runs it on all workflow files in the repository.
+
+**What is so special about this action?**
+
+* There is no official actionlint-action as discussed [here](https://github.com/rhysd/actionlint/issues/262) and [here](https://github.com/rhysd/actionlint/issues/117)
+* Validates the Checksum: Different than other unofficial actions this one validates the checksum of the downloaded binary against the checksums published in the [actionlint release notes](https://github.com/rhysd/actionlint/releases).
 
 ## Usage
 
