@@ -11,13 +11,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Lint GitHub Action Workflows
         uses: ./
   test-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Lint GitHub Action Workflows
         uses: ./
         with:
@@ -26,7 +26,7 @@ jobs:
   test-wrong-checksum:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Lint GitHub Action Workflows
         id: should-fail
         uses: ./
@@ -43,7 +43,7 @@ jobs:
   test-specific-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Lint GitHub Action Workflows
         uses: ./
         with:
@@ -51,7 +51,7 @@ jobs:
   test-no-checksum:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Lint GitHub Action Workflows
         uses: ./
         with:
