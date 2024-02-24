@@ -5,7 +5,7 @@ inputs:
   version:
     description: 'The version of actionlint to install'
     required: false
-    default: '1.6.26'
+    default: '1.6.27'
   checksum:
     description: 'The checksum of the actionlint binary'
     required: false
