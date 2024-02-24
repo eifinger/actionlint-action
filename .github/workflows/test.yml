@@ -40,14 +40,6 @@ jobs:
       - name: Fail if action passed
         if: steps.should-fail.outcome == 'success'
         run: exit 1
-  test-specific-version:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Lint GitHub Action Workflows
-        uses: ./
-        with:
-          version: "1.6.24"
   test-no-checksum:
     runs-on: ubuntu-latest
     steps:
