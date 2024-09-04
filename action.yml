@@ -14,7 +14,45 @@ runs:
   steps:
     - name: Install actionlint
       run: |
-        file="actionlint_${VERSION}_linux_amd64.tar.gz"
+        case "$OSTYPE" in
+            linux-*)
+                os=linux
+                ext=tar.gz
+            ;;
+            darwin*)
+                os=darwin
+                ext=tar.gz
+            ;;
+            freebsd*)
+                os=freebsd
+                ext=tar.gz
+            ;;
+            msys|cygwin|win32)
+                os=windows
+                ext=zip
+            ;;
+            *)
+                echo "OS '${OSTYPE}' is not supported. Note: If you're using Windows, please ensure bash is used to run this script" >&2
+                exit 1
+            ;;
+        esac
+
+
+        machine="$(uname -m)"
+        case "$machine" in
+            x86_64) arch=amd64 ;;
+            i?86) arch=386 ;;
+            aarch64|arm64) arch=arm64 ;;
+            arm*) arch=armv6 ;;
+            *)
+                echo "Could not determine arch from machine hardware name '${machine}'" >&2
+                exit 1
+            ;;
+        esac
+
+        echo "Detected OS=${os} ext=${ext} arch=${arch}"
+
+        file="actionlint_${VERSION}_${os}_${arch}.${ext}"
         url="https://github.com/rhysd/actionlint/releases/download/v${VERSION}/${file}"
         curl -L -o "${file}" "${url}"
         if ! sha256sum -c ${GITHUB_ACTION_PATH}/checksums.txt --ignore-missing --status;
@@ -26,7 +64,11 @@ runs:
             echo ::warning title=Unvalidated binary::No checksums could be found to validate ${file}. Please consider adding a checksum via the checksum input.
           fi
         fi
-        tar xzf "${file}" actionlint
+        if [[ "$os" == "windows" ]]; then
+            unzip "${file}" actionlint.exe
+        else
+            tar xzf "${file}" actionlint
+        fi
       shell: bash
       env:
         VERSION: ${{ inputs.version }}
