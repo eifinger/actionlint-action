@@ -5,7 +5,7 @@ Installs [actionlint](https://github.com/rhysd/actionlint) and runs it on all wo
 **What is so special about this action?**
 
 * There is no official actionlint-action as discussed [here](https://github.com/rhysd/actionlint/issues/262) and [here](https://github.com/rhysd/actionlint/issues/117)
-* Validates the Checksum: Different than other unofficial actions this one validates the checksum of the downloaded binary against the checksums published in the [actionlint release notes](https://github.com/rhysd/actionlint/releases).
+* Validates the Checksum: Different from other unofficial actions this one validates the checksum of the downloaded binary against the checksums published in the [actionlint release notes](https://github.com/rhysd/actionlint/releases).
 
 ## Usage
 
@@ -25,7 +25,7 @@ You can also install a specific version:
 
 ## Validating the checksum
 
-For versions `v1.6.24` up to `v1.7.4` the checksum of the downloaded binary is verified against the checksums published in the [actionlint release notes](https://github.com/rhysd/actionlint/releases).
+For versions `v1.6.24` up to `v1.7.5` the checksum of the downloaded binary is verified against the checksums published in the [actionlint release notes](https://github.com/rhysd/actionlint/releases).
 For later versions you can use the `checksum` input to verify the checksum of the downloaded binary.
 
 ```yaml
