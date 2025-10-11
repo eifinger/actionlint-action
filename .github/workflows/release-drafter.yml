@@ -11,7 +11,7 @@ on:
 jobs:
   update_release_draft:
     name: ✏️ Draft release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - name: 🚀 Run Release Drafter
         uses: release-drafter/release-drafter@v6.1.0
