@@ -18,7 +18,7 @@ jobs:
       - name: Lint GitHub Action Workflows
         uses: ./
   test-version:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
       - name: Lint GitHub Action Workflows
@@ -27,7 +27,7 @@ jobs:
           version: "1.6.24"
           checksum: "3c5818744143a5d6754edd3dcc4c2b32c9dfcdd3bb30e0e108fb5e5c505262d4"
   test-wrong-checksum:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
       - name: Lint GitHub Action Workflows
@@ -44,7 +44,7 @@ jobs:
         if: steps.should-fail.outcome == 'success'
         run: exit 1
   test-no-checksum:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
       - name: Lint GitHub Action Workflows
