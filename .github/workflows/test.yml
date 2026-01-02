@@ -14,13 +14,13 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, oracle-aarch64]
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Lint GitHub Action Workflows
         uses: ./
   test-version:
     runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Lint GitHub Action Workflows
         uses: ./
         with:
@@ -29,7 +29,7 @@ jobs:
   test-wrong-checksum:
     runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Lint GitHub Action Workflows
         id: should-fail
         uses: ./
@@ -46,7 +46,7 @@ jobs:
   test-no-checksum:
     runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Lint GitHub Action Workflows
         uses: ./
         with:
