@@ -2,7 +2,6 @@ self-hosted-runner:
   # Custom labels of self-hosted or large GitHub hosted runners
   # so that actionlint knows that they are not a typo
   labels:
-    - oracle-aarch64
     - ubuntu-24.04-arm # Included for testing old versions
 # Configuration variables in array of strings defined in your repository or
 # organization. `null` means disabling configuration variables check.
