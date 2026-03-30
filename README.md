@@ -20,19 +20,19 @@ You can also install a specific version:
 - name: Lint GitHub Actions
   uses: eifinger/actionlint-action@v1
   with:
-    version: "v1.6.24"
+    version: "1.7.12"
 ```
 
 ## Validating the checksum
 
-For versions `v1.6.24` up to `v1.7.11` the checksum of the downloaded binary is verified against the checksums published in the [actionlint release notes](https://github.com/rhysd/actionlint/releases).
+For versions `v1.6.24` up to `v1.7.12` the checksum of the downloaded binary is verified against the checksums published in the [actionlint release notes](https://github.com/rhysd/actionlint/releases).
 For later versions you can use the `checksum` input to verify the checksum of the downloaded binary.
 
 ```yaml
 - name: Lint GitHub Actions
   uses: eifinger/actionlint-action@v1
   with:
-    version: "v99.0.1"
+    version: "99.0.1"
     checksum: "4c5818744143a5d6754edd3dcc4c2b32c9dfcdd3bb30e0e108fb5e5c505262d4"
 ````
 
